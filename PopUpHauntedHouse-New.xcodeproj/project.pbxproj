@@ -1,0 +1,437 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BB0057D31ABD317F00260E02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0057D21ABD317F00260E02 /* AppDelegate.swift */; };
+		BB0057D61ABD317F00260E02 /* PopUpHauntedHouse_New.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB0057D41ABD317F00260E02 /* PopUpHauntedHouse_New.xcdatamodeld */; };
+		BB0057D81ABD317F00260E02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0057D71ABD317F00260E02 /* ViewController.swift */; };
+		BB0057DB1ABD317F00260E02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB0057D91ABD317F00260E02 /* Main.storyboard */; };
+		BB0057DD1ABD317F00260E02 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB0057DC1ABD317F00260E02 /* Images.xcassets */; };
+		BB0057E01ABD317F00260E02 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB0057DE1ABD317F00260E02 /* LaunchScreen.xib */; };
+		BB0057EC1ABD317F00260E02 /* PopUpHauntedHouse_NewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0057EB1ABD317F00260E02 /* PopUpHauntedHouse_NewTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BB0057E61ABD317F00260E02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BB0057C51ABD317F00260E02 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BB0057CC1ABD317F00260E02;
+			remoteInfo = "PopUpHauntedHouse-New";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BB0057CD1ABD317F00260E02 /* PopUpHauntedHouse-New.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PopUpHauntedHouse-New.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB0057D11ABD317F00260E02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB0057D21ABD317F00260E02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BB0057D51ABD317F00260E02 /* PopUpHauntedHouse_New.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PopUpHauntedHouse_New.xcdatamodel; sourceTree = "<group>"; };
+		BB0057D71ABD317F00260E02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BB0057DA1ABD317F00260E02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BB0057DC1ABD317F00260E02 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BB0057DF1ABD317F00260E02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		BB0057E51ABD317F00260E02 /* PopUpHauntedHouse-NewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PopUpHauntedHouse-NewTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB0057EA1ABD317F00260E02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB0057EB1ABD317F00260E02 /* PopUpHauntedHouse_NewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpHauntedHouse_NewTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BB0057CA1ABD317F00260E02 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB0057E21ABD317F00260E02 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BB0057C41ABD317F00260E02 = {
+			isa = PBXGroup;
+			children = (
+				BB0057CF1ABD317F00260E02 /* PopUpHauntedHouse-New */,
+				BB0057E81ABD317F00260E02 /* PopUpHauntedHouse-NewTests */,
+				BB0057CE1ABD317F00260E02 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BB0057CE1ABD317F00260E02 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BB0057CD1ABD317F00260E02 /* PopUpHauntedHouse-New.app */,
+				BB0057E51ABD317F00260E02 /* PopUpHauntedHouse-NewTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BB0057CF1ABD317F00260E02 /* PopUpHauntedHouse-New */ = {
+			isa = PBXGroup;
+			children = (
+				BB0057D21ABD317F00260E02 /* AppDelegate.swift */,
+				BB0057D71ABD317F00260E02 /* ViewController.swift */,
+				BB0057D91ABD317F00260E02 /* Main.storyboard */,
+				BB0057DC1ABD317F00260E02 /* Images.xcassets */,
+				BB0057DE1ABD317F00260E02 /* LaunchScreen.xib */,
+				BB0057D41ABD317F00260E02 /* PopUpHauntedHouse_New.xcdatamodeld */,
+				BB0057D01ABD317F00260E02 /* Supporting Files */,
+			);
+			path = "PopUpHauntedHouse-New";
+			sourceTree = "<group>";
+		};
+		BB0057D01ABD317F00260E02 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BB0057D11ABD317F00260E02 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BB0057E81ABD317F00260E02 /* PopUpHauntedHouse-NewTests */ = {
+			isa = PBXGroup;
+			children = (
+				BB0057EB1ABD317F00260E02 /* PopUpHauntedHouse_NewTests.swift */,
+				BB0057E91ABD317F00260E02 /* Supporting Files */,
+			);
+			path = "PopUpHauntedHouse-NewTests";
+			sourceTree = "<group>";
+		};
+		BB0057E91ABD317F00260E02 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BB0057EA1ABD317F00260E02 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BB0057CC1ABD317F00260E02 /* PopUpHauntedHouse-New */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB0057EF1ABD317F00260E02 /* Build configuration list for PBXNativeTarget "PopUpHauntedHouse-New" */;
+			buildPhases = (
+				BB0057C91ABD317F00260E02 /* Sources */,
+				BB0057CA1ABD317F00260E02 /* Frameworks */,
+				BB0057CB1ABD317F00260E02 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PopUpHauntedHouse-New";
+			productName = "PopUpHauntedHouse-New";
+			productReference = BB0057CD1ABD317F00260E02 /* PopUpHauntedHouse-New.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BB0057E41ABD317F00260E02 /* PopUpHauntedHouse-NewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB0057F21ABD317F00260E02 /* Build configuration list for PBXNativeTarget "PopUpHauntedHouse-NewTests" */;
+			buildPhases = (
+				BB0057E11ABD317F00260E02 /* Sources */,
+				BB0057E21ABD317F00260E02 /* Frameworks */,
+				BB0057E31ABD317F00260E02 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BB0057E71ABD317F00260E02 /* PBXTargetDependency */,
+			);
+			name = "PopUpHauntedHouse-NewTests";
+			productName = "PopUpHauntedHouse-NewTests";
+			productReference = BB0057E51ABD317F00260E02 /* PopUpHauntedHouse-NewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BB0057C51ABD317F00260E02 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = Murmur;
+				TargetAttributes = {
+					BB0057CC1ABD317F00260E02 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					BB0057E41ABD317F00260E02 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = BB0057CC1ABD317F00260E02;
+					};
+				};
+			};
+			buildConfigurationList = BB0057C81ABD317F00260E02 /* Build configuration list for PBXProject "PopUpHauntedHouse-New" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BB0057C41ABD317F00260E02;
+			productRefGroup = BB0057CE1ABD317F00260E02 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BB0057CC1ABD317F00260E02 /* PopUpHauntedHouse-New */,
+				BB0057E41ABD317F00260E02 /* PopUpHauntedHouse-NewTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BB0057CB1ABD317F00260E02 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB0057DB1ABD317F00260E02 /* Main.storyboard in Resources */,
+				BB0057E01ABD317F00260E02 /* LaunchScreen.xib in Resources */,
+				BB0057DD1ABD317F00260E02 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB0057E31ABD317F00260E02 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BB0057C91ABD317F00260E02 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB0057D81ABD317F00260E02 /* ViewController.swift in Sources */,
+				BB0057D61ABD317F00260E02 /* PopUpHauntedHouse_New.xcdatamodeld in Sources */,
+				BB0057D31ABD317F00260E02 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB0057E11ABD317F00260E02 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB0057EC1ABD317F00260E02 /* PopUpHauntedHouse_NewTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BB0057E71ABD317F00260E02 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BB0057CC1ABD317F00260E02 /* PopUpHauntedHouse-New */;
+			targetProxy = BB0057E61ABD317F00260E02 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BB0057D91ABD317F00260E02 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB0057DA1ABD317F00260E02 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BB0057DE1ABD317F00260E02 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB0057DF1ABD317F00260E02 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BB0057ED1ABD317F00260E02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BB0057EE1ABD317F00260E02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BB0057F01ABD317F00260E02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "PopUpHauntedHouse-New/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BB0057F11ABD317F00260E02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "PopUpHauntedHouse-New/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		BB0057F31ABD317F00260E02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PopUpHauntedHouse-NewTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PopUpHauntedHouse-New.app/PopUpHauntedHouse-New";
+			};
+			name = Debug;
+		};
+		BB0057F41ABD317F00260E02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PopUpHauntedHouse-NewTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PopUpHauntedHouse-New.app/PopUpHauntedHouse-New";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BB0057C81ABD317F00260E02 /* Build configuration list for PBXProject "PopUpHauntedHouse-New" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB0057ED1ABD317F00260E02 /* Debug */,
+				BB0057EE1ABD317F00260E02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BB0057EF1ABD317F00260E02 /* Build configuration list for PBXNativeTarget "PopUpHauntedHouse-New" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB0057F01ABD317F00260E02 /* Debug */,
+				BB0057F11ABD317F00260E02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BB0057F21ABD317F00260E02 /* Build configuration list for PBXNativeTarget "PopUpHauntedHouse-NewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB0057F31ABD317F00260E02 /* Debug */,
+				BB0057F41ABD317F00260E02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BB0057D41ABD317F00260E02 /* PopUpHauntedHouse_New.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BB0057D51ABD317F00260E02 /* PopUpHauntedHouse_New.xcdatamodel */,
+			);
+			currentVersion = BB0057D51ABD317F00260E02 /* PopUpHauntedHouse_New.xcdatamodel */;
+			path = PopUpHauntedHouse_New.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BB0057C51ABD317F00260E02 /* Project object */;
+}
