@@ -8,12 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		BB0057D31ABD317F00260E02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0057D21ABD317F00260E02 /* AppDelegate.swift */; };
-		BB0057D61ABD317F00260E02 /* PopUpHauntedHouse_New.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB0057D41ABD317F00260E02 /* PopUpHauntedHouse_New.xcdatamodeld */; };
 		BB0057D81ABD317F00260E02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0057D71ABD317F00260E02 /* ViewController.swift */; };
 		BB0057DB1ABD317F00260E02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB0057D91ABD317F00260E02 /* Main.storyboard */; };
 		BB0057DD1ABD317F00260E02 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB0057DC1ABD317F00260E02 /* Images.xcassets */; };
 		BB0057E01ABD317F00260E02 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB0057DE1ABD317F00260E02 /* LaunchScreen.xib */; };
 		BB0057EC1ABD317F00260E02 /* PopUpHauntedHouse_NewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0057EB1ABD317F00260E02 /* PopUpHauntedHouse_NewTests.swift */; };
+		BB679D511ABFBE3D00BD8F19 /* PopUpHauntedHouse.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB679D4F1ABFBE3D00BD8F19 /* PopUpHauntedHouse.xcdatamodeld */; };
+		BB7BE37A1ABD332C00EF73C1 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7BE3791ABD332C00EF73C1 /* SwiftyJSON.swift */; };
+		BB7BE3821ABD336400EF73C1 /* PopUpHauntedHouse.json in Resources */ = {isa = PBXBuildFile; fileRef = BB7BE37D1ABD336400EF73C1 /* PopUpHauntedHouse.json */; };
+		BB7BE3831ABD336400EF73C1 /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7BE37E1ABD336400EF73C1 /* Beacon.swift */; };
+		BB7BE3841ABD336400EF73C1 /* ActionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7BE37F1ABD336400EF73C1 /* ActionProtocol.swift */; };
+		BB7BE3851ABD336400EF73C1 /* AudioTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7BE3801ABD336400EF73C1 /* AudioTrack.swift */; };
+		BB7BE3861ABD336400EF73C1 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7BE3811ABD336400EF73C1 /* DataManager.swift */; };
+		BB7BE3911ABD336D00EF73C1 /* focus4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BB7BE3871ABD336D00EF73C1 /* focus4.mp3 */; };
+		BB7BE3921ABD336D00EF73C1 /* focus5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BB7BE3881ABD336D00EF73C1 /* focus5.mp3 */; };
+		BB7BE3931ABD336D00EF73C1 /* BG1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BB7BE3891ABD336D00EF73C1 /* BG1.mp3 */; };
+		BB7BE3941ABD336D00EF73C1 /* BG2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BB7BE38A1ABD336D00EF73C1 /* BG2.mp3 */; };
+		BB7BE3951ABD336D00EF73C1 /* BG3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BB7BE38B1ABD336D00EF73C1 /* BG3.mp3 */; };
+		BB7BE3961ABD336D00EF73C1 /* BG4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BB7BE38C1ABD336D00EF73C1 /* BG4.mp3 */; };
+		BB7BE3971ABD336D00EF73C1 /* BG5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BB7BE38D1ABD336D00EF73C1 /* BG5.mp3 */; };
+		BB7BE3981ABD336D00EF73C1 /* digihit_short.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BB7BE38E1ABD336D00EF73C1 /* digihit_short.mp3 */; };
+		BB7BE3991ABD336D00EF73C1 /* focus1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BB7BE38F1ABD336D00EF73C1 /* focus1.mp3 */; };
+		BB7BE39A1ABD336D00EF73C1 /* tension-goove.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BB7BE3901ABD336D00EF73C1 /* tension-goove.mp3 */; };
+		FD0150D3A7ED3B495C8AF7D5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC06B3E456FE899C834AA79D /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,10 +44,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		595A03225333E6B8108FD091 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BB0057CD1ABD317F00260E02 /* PopUpHauntedHouse-New.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PopUpHauntedHouse-New.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB0057D11ABD317F00260E02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB0057D21ABD317F00260E02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BB0057D51ABD317F00260E02 /* PopUpHauntedHouse_New.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PopUpHauntedHouse_New.xcdatamodel; sourceTree = "<group>"; };
 		BB0057D71ABD317F00260E02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BB0057DA1ABD317F00260E02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB0057DC1ABD317F00260E02 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -38,6 +55,26 @@
 		BB0057E51ABD317F00260E02 /* PopUpHauntedHouse-NewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PopUpHauntedHouse-NewTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB0057EA1ABD317F00260E02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB0057EB1ABD317F00260E02 /* PopUpHauntedHouse_NewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpHauntedHouse_NewTests.swift; sourceTree = "<group>"; };
+		BB679D501ABFBE3D00BD8F19 /* PopUpHauntedHouse.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PopUpHauntedHouse.xcdatamodel; sourceTree = "<group>"; };
+		BB7BE3781ABD324E00EF73C1 /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
+		BB7BE3791ABD332C00EF73C1 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		BB7BE37D1ABD336400EF73C1 /* PopUpHauntedHouse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PopUpHauntedHouse.json; sourceTree = "<group>"; };
+		BB7BE37E1ABD336400EF73C1 /* Beacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
+		BB7BE37F1ABD336400EF73C1 /* ActionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionProtocol.swift; sourceTree = "<group>"; };
+		BB7BE3801ABD336400EF73C1 /* AudioTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioTrack.swift; sourceTree = "<group>"; };
+		BB7BE3811ABD336400EF73C1 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		BB7BE3871ABD336D00EF73C1 /* focus4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = focus4.mp3; sourceTree = "<group>"; };
+		BB7BE3881ABD336D00EF73C1 /* focus5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = focus5.mp3; sourceTree = "<group>"; };
+		BB7BE3891ABD336D00EF73C1 /* BG1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BG1.mp3; sourceTree = "<group>"; };
+		BB7BE38A1ABD336D00EF73C1 /* BG2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BG2.mp3; sourceTree = "<group>"; };
+		BB7BE38B1ABD336D00EF73C1 /* BG3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BG3.mp3; sourceTree = "<group>"; };
+		BB7BE38C1ABD336D00EF73C1 /* BG4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BG4.mp3; sourceTree = "<group>"; };
+		BB7BE38D1ABD336D00EF73C1 /* BG5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BG5.mp3; sourceTree = "<group>"; };
+		BB7BE38E1ABD336D00EF73C1 /* digihit_short.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = digihit_short.mp3; sourceTree = "<group>"; };
+		BB7BE38F1ABD336D00EF73C1 /* focus1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = focus1.mp3; sourceTree = "<group>"; };
+		BB7BE3901ABD336D00EF73C1 /* tension-goove.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "tension-goove.mp3"; sourceTree = "<group>"; };
+		CC06B3E456FE899C834AA79D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4C4EFE7BAD491D91E123EAC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD0150D3A7ED3B495C8AF7D5 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,12 +96,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		44BFE1BB794C62ABFC1A8A21 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CC06B3E456FE899C834AA79D /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7F124B95E653369DFA479FF3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				595A03225333E6B8108FD091 /* Pods.debug.xcconfig */,
+				F4C4EFE7BAD491D91E123EAC /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BB0057C41ABD317F00260E02 = {
 			isa = PBXGroup;
 			children = (
+				BB7BE3781ABD324E00EF73C1 /* Bridge-Header.h */,
 				BB0057CF1ABD317F00260E02 /* PopUpHauntedHouse-New */,
 				BB0057E81ABD317F00260E02 /* PopUpHauntedHouse-NewTests */,
 				BB0057CE1ABD317F00260E02 /* Products */,
+				7F124B95E653369DFA479FF3 /* Pods */,
+				44BFE1BB794C62ABFC1A8A21 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,12 +137,19 @@
 		BB0057CF1ABD317F00260E02 /* PopUpHauntedHouse-New */ = {
 			isa = PBXGroup;
 			children = (
+				BB7BE39C1ABD339600EF73C1 /* data */,
+				BB7BE39B1ABD338A00EF73C1 /* audio */,
+				BB7BE3791ABD332C00EF73C1 /* SwiftyJSON.swift */,
+				BB7BE37E1ABD336400EF73C1 /* Beacon.swift */,
+				BB7BE37F1ABD336400EF73C1 /* ActionProtocol.swift */,
+				BB7BE3801ABD336400EF73C1 /* AudioTrack.swift */,
+				BB7BE3811ABD336400EF73C1 /* DataManager.swift */,
 				BB0057D21ABD317F00260E02 /* AppDelegate.swift */,
 				BB0057D71ABD317F00260E02 /* ViewController.swift */,
 				BB0057D91ABD317F00260E02 /* Main.storyboard */,
 				BB0057DC1ABD317F00260E02 /* Images.xcassets */,
 				BB0057DE1ABD317F00260E02 /* LaunchScreen.xib */,
-				BB0057D41ABD317F00260E02 /* PopUpHauntedHouse_New.xcdatamodeld */,
+				BB679D4F1ABFBE3D00BD8F19 /* PopUpHauntedHouse.xcdatamodeld */,
 				BB0057D01ABD317F00260E02 /* Supporting Files */,
 			);
 			path = "PopUpHauntedHouse-New";
@@ -115,6 +180,31 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BB7BE39B1ABD338A00EF73C1 /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				BB7BE3871ABD336D00EF73C1 /* focus4.mp3 */,
+				BB7BE3881ABD336D00EF73C1 /* focus5.mp3 */,
+				BB7BE3891ABD336D00EF73C1 /* BG1.mp3 */,
+				BB7BE38A1ABD336D00EF73C1 /* BG2.mp3 */,
+				BB7BE38B1ABD336D00EF73C1 /* BG3.mp3 */,
+				BB7BE38C1ABD336D00EF73C1 /* BG4.mp3 */,
+				BB7BE38D1ABD336D00EF73C1 /* BG5.mp3 */,
+				BB7BE38E1ABD336D00EF73C1 /* digihit_short.mp3 */,
+				BB7BE38F1ABD336D00EF73C1 /* focus1.mp3 */,
+				BB7BE3901ABD336D00EF73C1 /* tension-goove.mp3 */,
+			);
+			name = audio;
+			sourceTree = "<group>";
+		};
+		BB7BE39C1ABD339600EF73C1 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				BB7BE37D1ABD336400EF73C1 /* PopUpHauntedHouse.json */,
+			);
+			name = data;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,9 +212,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BB0057EF1ABD317F00260E02 /* Build configuration list for PBXNativeTarget "PopUpHauntedHouse-New" */;
 			buildPhases = (
+				A74962AD000150B097356E79 /* Check Pods Manifest.lock */,
 				BB0057C91ABD317F00260E02 /* Sources */,
 				BB0057CA1ABD317F00260E02 /* Frameworks */,
 				BB0057CB1ABD317F00260E02 /* Resources */,
+				E2504B1133AC2E9FF5DAC51B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -195,9 +287,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB7BE3951ABD336D00EF73C1 /* BG3.mp3 in Resources */,
+				BB7BE3941ABD336D00EF73C1 /* BG2.mp3 in Resources */,
+				BB7BE39A1ABD336D00EF73C1 /* tension-goove.mp3 in Resources */,
 				BB0057DB1ABD317F00260E02 /* Main.storyboard in Resources */,
 				BB0057E01ABD317F00260E02 /* LaunchScreen.xib in Resources */,
+				BB7BE3981ABD336D00EF73C1 /* digihit_short.mp3 in Resources */,
 				BB0057DD1ABD317F00260E02 /* Images.xcassets in Resources */,
+				BB7BE3821ABD336400EF73C1 /* PopUpHauntedHouse.json in Resources */,
+				BB7BE3931ABD336D00EF73C1 /* BG1.mp3 in Resources */,
+				BB7BE3911ABD336D00EF73C1 /* focus4.mp3 in Resources */,
+				BB7BE3961ABD336D00EF73C1 /* BG4.mp3 in Resources */,
+				BB7BE3971ABD336D00EF73C1 /* BG5.mp3 in Resources */,
+				BB7BE3991ABD336D00EF73C1 /* focus1.mp3 in Resources */,
+				BB7BE3921ABD336D00EF73C1 /* focus5.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,14 +313,52 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A74962AD000150B097356E79 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E2504B1133AC2E9FF5DAC51B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BB0057C91ABD317F00260E02 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				BB0057D81ABD317F00260E02 /* ViewController.swift in Sources */,
-				BB0057D61ABD317F00260E02 /* PopUpHauntedHouse_New.xcdatamodeld in Sources */,
+				BB7BE3861ABD336400EF73C1 /* DataManager.swift in Sources */,
+				BB7BE3841ABD336400EF73C1 /* ActionProtocol.swift in Sources */,
 				BB0057D31ABD317F00260E02 /* AppDelegate.swift in Sources */,
+				BB7BE3831ABD336400EF73C1 /* Beacon.swift in Sources */,
+				BB7BE3851ABD336400EF73C1 /* AudioTrack.swift in Sources */,
+				BB7BE37A1ABD332C00EF73C1 /* SwiftyJSON.swift in Sources */,
+				BB679D511ABFBE3D00BD8F19 /* PopUpHauntedHouse.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,10 +434,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Bridge-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -329,16 +471,19 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Bridge-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		BB0057F01ABD317F00260E02 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 595A03225333E6B8108FD091 /* Pods.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "PopUpHauntedHouse-New/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -348,7 +493,9 @@
 		};
 		BB0057F11ABD317F00260E02 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4C4EFE7BAD491D91E123EAC /* Pods.release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "PopUpHauntedHouse-New/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -358,6 +505,7 @@
 		};
 		BB0057F31ABD317F00260E02 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 595A03225333E6B8108FD091 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -377,6 +525,7 @@
 		};
 		BB0057F41ABD317F00260E02 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4C4EFE7BAD491D91E123EAC /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -409,6 +558,7 @@
 				BB0057F11ABD317F00260E02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BB0057F21ABD317F00260E02 /* Build configuration list for PBXNativeTarget "PopUpHauntedHouse-NewTests" */ = {
 			isa = XCConfigurationList;
@@ -417,17 +567,18 @@
 				BB0057F41ABD317F00260E02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		BB0057D41ABD317F00260E02 /* PopUpHauntedHouse_New.xcdatamodeld */ = {
+		BB679D4F1ABFBE3D00BD8F19 /* PopUpHauntedHouse.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				BB0057D51ABD317F00260E02 /* PopUpHauntedHouse_New.xcdatamodel */,
+				BB679D501ABFBE3D00BD8F19 /* PopUpHauntedHouse.xcdatamodel */,
 			);
-			currentVersion = BB0057D51ABD317F00260E02 /* PopUpHauntedHouse_New.xcdatamodel */;
-			path = PopUpHauntedHouse_New.xcdatamodeld;
+			currentVersion = BB679D501ABFBE3D00BD8F19 /* PopUpHauntedHouse.xcdatamodel */;
+			path = PopUpHauntedHouse.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
