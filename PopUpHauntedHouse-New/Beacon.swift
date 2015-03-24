@@ -7,18 +7,27 @@
 //
 
 import Foundation
+import CoreData
+import UIKit
 
-class Beacon {
+class Beacon:NSManagedObject {
     
-    var beaconId:String!
-    var actions:[ActionProtocol]!
+    @NSManaged var beaconId:String!
+    @NSManaged var name:String?
+    var actions:[ActionProtocol]=[]
     
     init(thisBeaconId:String) {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let ctx = appDelegate.managedObjectContext!
+        let entity = NSEntityDescription.entityForName("Beacon", inManagedObjectContext: ctx)!
+        super.init(entity: entity, insertIntoManagedObjectContext: ctx)
         self.beaconId=thisBeaconId
     }
-    init(thisBeaconId:String,theseActions:[ActionProtocol]) {
-        self.beaconId = thisBeaconId
-        self.actions = theseActions
+    
+    func addActions(actions:[ActionProtocol]) {
+        for a in actions {
+        self.addAction(a)
+        }
     }
     
     func addAction(action:ActionProtocol) {

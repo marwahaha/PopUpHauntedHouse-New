@@ -34,7 +34,7 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate {
     let proximityUUID:NSUUID = NSUUID(UUIDString:"B9407F30-F5F8-466E-AFF9-25556B57FE6D")!
     let beaconManager:ESTBeaconManager =  ESTBeaconManager()
     
-    var beacons:Dictionary<String,Beacon>!
+    var beacons:[String:[ActionProtocol]]=[String:[ActionProtocol]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,13 +44,36 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate {
         beaconManager.startRangingBeaconsInRegion(beaconRegion)*/
 
         //DataManager.setUpActions();
-        var beaconId:String = "B9407F30-F5F8-466E-AFF9-25556B57FE6D-5153-14990";
+        self.loadBeacons();
+        for key in beacons.keys {
+            println("beacon: \(key)")
+        }
+        
+    }
+    
+    func loadBeacons() {
+        var bs:[NSManagedObject] = DataManager.getAllBeacons()
+        for b in bs {
+            var myBeacon:Beacon = Beacon(thisBeaconId: b.valueForKey("beaconId") as String!)
+            self.beacons[myBeacon.beaconId]=self.getAudioTracks(myBeacon.beaconId)
+        }
+    }
+    
+    func getAudioTracks(beaconId:String)->[ActionProtocol] {
+        var actionProtocols:[ActionProtocol] = []
         var actions:[NSManagedObject] = DataManager.getAudioTracksForBeacon(beaconId);
         for action in actions {
-            var name:String = action.valueForKey("name") as String!
-            var order:NSNumber = action.valueForKey("order") as NSNumber!
-            println("name: \(name) : order: \(order)")
+            
+            var a:AudioTrack=AudioTrack(
+                beaconId:beaconId,
+                name:action.valueForKey("name") as String!,
+                audioFile:action.valueForKey("audioFile") as String!,
+                audioExtension:action.valueForKey("audioExtension") as String!,
+                order:action.valueForKey("order") as Int!)
+            
+            actionProtocols.append(a)
         }
+        return actionProtocols;
     }
     
     /**
@@ -58,6 +81,7 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate {
     */
     func beaconManager(manager: ESTBeaconManager!, didRangeBeacons beacons: [AnyObject]!, inRegion region: ESTBeaconRegion!) {
         for var i=0; i<beacons.count; i++ {
+            
             println("prox: \(beacons[i].minor) : \(beacons[i].rssi) : \(beacons[i].proximity.rawValue)")
             var beacon = beacons[i] as ESTBeacon
             var majorString = String(beacon.major.integerValue)

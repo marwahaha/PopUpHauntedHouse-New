@@ -31,6 +31,8 @@ class DataManager {
                         
                         for appDict in appArray {
                             var beaconId:String = appDict["id"].stringValue!
+                            var beaconName:String = appDict["name"].stringValue!
+                            DataManager.saveBeacon(beaconId,name: beaconName);
                             var actionsArray:Array<JSON> = appDict["actions"].arrayValue!
                             
                             for action in actionsArray {
@@ -78,6 +80,40 @@ class DataManager {
             println("Could not save \(error), \(error?.userInfo)")
         }
         
+    }
+    
+    class func saveBeacon(beaconId:String,name:String) {
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let managedContext = appDelegate.managedObjectContext!
+        let entity =  NSEntityDescription.entityForName("Beacon",inManagedObjectContext:managedContext)
+        let action = NSManagedObject(entity: entity!,insertIntoManagedObjectContext:managedContext)
+        
+        action.setValue(beaconId, forKey: "beaconId")
+        action.setValue(name, forKey: "name")
+        
+        var error: NSError?
+        if !managedContext.save(&error) {
+            println("Could not save \(error), \(error?.userInfo)")
+        }
+        
+    }
+    
+    class func getAllBeacons()->Array<NSManagedObject> {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let managedContext = appDelegate.managedObjectContext!
+        let fetchRequest = NSFetchRequest(entityName:"Beacon")
+        
+        var error: NSError?
+        let fetchedResults = managedContext.executeFetchRequest(fetchRequest,error: &error) as [NSManagedObject]?
+        
+        var beacons:[NSManagedObject] = [NSManagedObject]()
+        if let results = fetchedResults {
+            beacons = results
+        } else {
+            println("Could not fetch \(error), \(error!.userInfo)")
+        }
+        return beacons;
     }
     
     class func getAudioTracksForBeacon(beaconId:String)->Array<NSManagedObject> {

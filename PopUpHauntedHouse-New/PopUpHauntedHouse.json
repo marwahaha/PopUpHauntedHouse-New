@@ -1,5 +1,6 @@
 {"data":[
          {"id":"B9407F30-F5F8-466E-AFF9-25556B57FE6D-27776-16130",
+         "name":"blueberry",
         "actions": [
                     {
                     "name": "BG1",
@@ -16,6 +17,7 @@
                 ]
          },
          {"id":"B9407F30-F5F8-466E-AFF9-25556B57FE6D-2842-55111",
+         "name":"mint",
         "actions": [
                     {
                     "name": "BG3",
@@ -32,6 +34,7 @@
                     ]
          },
          {"id":"B9407F30-F5F8-466E-AFF9-25556B57FE6D-5153-14990",
+         "name":"ice",
         "actions": [
                     {
                     "name": "BG5",
