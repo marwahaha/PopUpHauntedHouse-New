@@ -6,8 +6,9 @@
 
 import UIKit
 import CoreData
+import AVFoundation
 
-class ViewController: UIViewController, ESTBeaconManagerDelegate {
+class ViewController: UIViewController, ESTBeaconManagerDelegate,QRCodeReaderViewControllerDelegate {
     
     /**
     This system needs a few things:
@@ -26,36 +27,84 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate {
     So we need a data structure for beacons. A key beacon id, and a SortedSet of ActionProtocols
     
     3) Some kind of intro on screen, in audio, something.
-    
-    4) A way to program stories and beacons (phase 2)
     */
     
-    let uuIDString:String = "B9407F30-F5F8-466E-AFF9-25556B57FE6D"
-    let proximityUUID:NSUUID = NSUUID(UUIDString:"B9407F30-F5F8-466E-AFF9-25556B57FE6D")!
     let beaconManager:ESTBeaconManager =  ESTBeaconManager()
-    
-    var beacons:[String:[ActionProtocol]]=[String:[ActionProtocol]]()
+    var beaconRegion:CLBeaconRegion!
+    var actions:[String:[ActionProtocol]]=[String:[ActionProtocol]]()
+    var uuIDString:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /**beaconManager.delegate = self
+        beaconManager.delegate = self
         beaconManager.requestAlwaysAuthorization()
-        var beaconRegion:ESTBeaconRegion = ESTBeaconRegion(proximityUUID:proximityUUID,identifier:"Estimotes")
-        beaconManager.startRangingBeaconsInRegion(beaconRegion)*/
-
-        //DataManager.setUpActions();
-        self.loadBeacons();
-        for key in beacons.keys {
-            println("beacon: \(key)")
-        }
         
     }
     
-    func loadBeacons() {
+    func setUpBeaconRanging() {
+        if let uuidstring = DataManager.getConfigInfo("uuidstring") {
+             self.uuIDString=uuidstring
+             println("setUpBeaconRanging: "+self.uuIDString!);
+             self.beaconRegion = CLBeaconRegion(proximityUUID:NSUUID(UUIDString: self.uuIDString!),identifier:"Estimotes")
+            self.startRangingBeacons()
+        } else {
+            println("problem with UUIDSTRING!")
+        }
+    }
+    
+    @IBAction func stopRangeBeacons(sender: AnyObject) {
+        self.stopRangingBeacons()
+    }
+    
+    @IBAction func rangeBeacons(sender: AnyObject) {
+        if let region = self.beaconRegion {
+            self.startRangingBeacons()
+        } else {
+            self.setUpBeaconRanging()
+        }
+    }
+    @IBAction func loadDataFromURL(sender: AnyObject) {
+        DataManager.loadDataFromURL(DataManager.getConfigInfo("configURL")!)
+    }
+    
+    @IBAction func launchQRCodeReader(sender: AnyObject) {
+        println("we are now launching the reader")
+        var reader = QRCodeReaderViewController(metadataObjectTypes: [AVMetadataObjectTypeQRCode])
+        reader.delegate=self
+        reader.modalPresentationStyle = .FormSheet
+        presentViewController(reader, animated: true, completion: nil)
+    }
+    
+    func reader(reader: QRCodeReaderViewController, didScanResult result: String) {
+        println("RESULT: "+result);
+        DataManager.saveConfigInfo("configURL", configVal: result)
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func readerDidCancel(reader: QRCodeReaderViewController) {
+        println("cancelled!");
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func refreshActionsDB() {
+        //DataManager.setUpActions(self.jsonConfigURL);
+    }
+    
+    func stopRangingBeacons() {
+        println("stopRangingBeacons: "+self.uuIDString!);
+        beaconManager.stopRangingBeaconsInRegion(beaconRegion)
+    }
+    
+    func startRangingBeacons() {
+        println("startRangingBeacons: "+self.uuIDString!);
+        beaconManager.startRangingBeaconsInRegion(beaconRegion)
+    }
+    
+    func loadBeaconsIntoMemory() {
         var bs:[NSManagedObject] = DataManager.getAllBeacons()
         for b in bs {
             var myBeacon:Beacon = Beacon(thisBeaconId: b.valueForKey("beaconId") as String!)
-            self.beacons[myBeacon.beaconId]=self.getAudioTracks(myBeacon.beaconId)
+            self.actions[myBeacon.beaconId]=self.getAudioTracks(myBeacon.beaconId)
         }
     }
     
@@ -77,22 +126,34 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate {
     }
     
     /**
-    
     */
-    func beaconManager(manager: ESTBeaconManager!, didRangeBeacons beacons: [AnyObject]!, inRegion region: ESTBeaconRegion!) {
+    func beaconManager(manager: ESTBeaconManager!, didRangeBeacons beacons: [AnyObject]!, inRegion region: CLBeaconRegion!) {
+        
         for var i=0; i<beacons.count; i++ {
             
             println("prox: \(beacons[i].minor) : \(beacons[i].rssi) : \(beacons[i].proximity.rawValue)")
-            var beacon = beacons[i] as ESTBeacon
+            
+            var beacon = beacons[i] as CLBeacon
             var majorString = String(beacon.major.integerValue)
             var minorString = String(beacon.minor.integerValue)
-            var slug:String = uuIDString+"-"+majorString+"-"+minorString
+            var slug:String = self.uuIDString!+"-"+majorString+"-"+minorString
             
             // GRAB THE NEXT ONE IN THE LIST
-            //var thisTrack:ActionProtocol =  beacons[slug]
-            //if (beacon.proximity.rawValue == 1) {
-            //    thisTrack.performAction()
-            //}
+            if var actionProtocols = self.actions[slug] {
+                
+                var thisTrack:ActionProtocol =  actionProtocols[0]
+                if (beacon.proximity.rawValue == 1) {
+                    //thisTrack.performAction()
+                    // TODO: FIGURE OUT RULES FOR UPDATING WHAT WAS DONE AND MOVING THROUGH LIST
+                    // Thsi action has happened, it's done. Or just mark it as happened and save?
+                    //actionProtocols.removeAtIndex(0)
+                }
+                
+            } else {
+                
+            }
+            
+            
         }
     }
     

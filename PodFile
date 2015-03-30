@@ -1,1 +1,2 @@
-pod 'EstimoteSDK'
+platform :ios, '8.0'
+pod 'EstimoteSDK','~>3.0.3'

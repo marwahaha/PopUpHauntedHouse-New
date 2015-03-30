@@ -1,25 +1,79 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="PopUpHauntedHouse_New" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GaM-LT-VLV">
+                                <rect key="frame" x="105" y="64" width="110" height="30"/>
+                                <state key="normal" title="Reset Data URL">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="launchQRCodeReader:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="LQq-wV-bxp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29r-9Z-myy">
+                                <rect key="frame" x="130" y="124" width="61" height="30"/>
+                                <state key="normal" title="Get Data">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loadDataFromURL:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="PzN-E0-DrO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZl-SZ-AHk">
+                                <rect key="frame" x="106" y="181" width="109" height="30"/>
+                                <state key="normal" title="Range Beacons">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="rangeBeacons:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kHZ-XD-RBN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BdO-p3-hya">
+                                <rect key="frame" x="87" y="239" width="146" height="30"/>
+                                <state key="normal" title="Stop Range Beacons">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopRangeBeacons:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="tE1-ZC-85J"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BdO-p3-hya" firstAttribute="centerX" secondItem="cZl-SZ-AHk" secondAttribute="centerX" id="5zJ-lF-3Yt"/>
+                            <constraint firstItem="GaM-LT-VLV" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="44" id="8lx-Fj-j7m"/>
+                            <constraint firstItem="29r-9Z-myy" firstAttribute="top" secondItem="GaM-LT-VLV" secondAttribute="bottom" constant="30" id="AdX-Gz-FGL"/>
+                            <constraint firstItem="cZl-SZ-AHk" firstAttribute="top" secondItem="29r-9Z-myy" secondAttribute="bottom" constant="27" id="Dta-HI-D9R"/>
+                            <constraint firstItem="cZl-SZ-AHk" firstAttribute="trailing" secondItem="GaM-LT-VLV" secondAttribute="trailing" id="mLy-3Q-D4t"/>
+                            <constraint firstItem="BdO-p3-hya" firstAttribute="top" secondItem="cZl-SZ-AHk" secondAttribute="bottom" constant="28" id="s0Y-No-czW"/>
+                            <constraint firstItem="GaM-LT-VLV" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="wsd-OD-77H"/>
+                            <constraint firstItem="29r-9Z-myy" firstAttribute="centerX" secondItem="GaM-LT-VLV" secondAttribute="centerX" id="z12-DY-EBM"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-10" y="245"/>
         </scene>
     </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

@@ -4,7 +4,8 @@
 //
 //  Created by Mark Harris on 3/20/15.
 //  Copyright (c) 2015 Murmur. All rights reserved.
-//
+
+//  TODO: Downloading media too. Right now, the config doesn't help that much without the power to download new media with it
 
 import Foundation
 import CoreData
@@ -12,14 +13,66 @@ import UIKit
 
 class DataManager {
     
-    class func setUpActions() {
-        DataManager.getJSONDataFromFile("PopUpHauntedHouse")
+    class func loadDataFromURL(url:String) {
+        println("loading data from URL: "+url)
+        DataManager.storeActionsDataFromURL(url)
     }
     
-    class func getJSONDataFromFile(fileName:String)->Void {
+    class func saveConfigInfo(configKey:String,configVal:String) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(configVal, forKey: configKey)
+    }
+    
+    class func getConfigInfo(configKey:String)->String? {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let val = defaults.stringForKey(configKey) {
+            return val;
+        }
+        return nil
+    }
+    
+    class func storeActionsDataFromURL(urlString:String)->Void {
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            
+        var url = NSURL(string:urlString)!
+        var session = NSURLSession.sharedSession()
+        let loadDataTask = session.dataTaskWithURL(url, completionHandler: { (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void in
+            if let responseError = error {
+                println(responseError)
+                //completion(data: nil, error: responseError)
+                // TODO: LOG IT AND DEAL WITH IT
+            } else if let httpResponse = response as? NSHTTPURLResponse {
+                    let json = JSON(data: data)
+                    println(json)
+                
+                    if let uuidString = json["uuidstring"].stringValue {
+                        DataManager.saveConfigInfo("uuidstring",configVal: uuidString)
+                    }
+                
+                
+                    if let appArray = json["data"].arrayValue {
+                        
+                        for appDict in appArray {
+                            var beaconId:String = appDict["id"].stringValue!
+                            var beaconName:String = appDict["name"].stringValue!
+                            DataManager.saveBeacon(beaconId,name: beaconName);
+                            var actionsArray:Array<JSON> = appDict["actions"].arrayValue!
+                            
+                            for action in actionsArray {
+                                if (action["type"].stringValue!=="AudioTrack") {
+                                    DataManager.saveTypeAudioTrack(beaconId,action:action)
+                                }
+                            }
+                        }
+                        
+                    }
+            }
+        })
+        
+        loadDataTask.resume()
+        
+        
+        
+/**        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
                 let filePath = NSBundle.mainBundle().pathForResource(fileName,ofType:"json")
                 var readError:NSError?
             
@@ -43,10 +96,8 @@ class DataManager {
                         }
                         
                     }
-                    
                 }
-            
-            })
+            })*/
     }
     
     class func saveTypeAudioTrack(beaconId:String,action:JSON) {
