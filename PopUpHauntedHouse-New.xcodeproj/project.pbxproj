@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		337031706A92A7995C160177 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1924037CA57FA68A8E597A26 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		BB0057D31ABD317F00260E02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0057D21ABD317F00260E02 /* AppDelegate.swift */; };
 		BB0057D81ABD317F00260E02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0057D71ABD317F00260E02 /* ViewController.swift */; };
 		BB0057DB1ABD317F00260E02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB0057D91ABD317F00260E02 /* Main.storyboard */; };
@@ -33,7 +34,6 @@
 		BB7BE3981ABD336D00EF73C1 /* digihit_short.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BB7BE38E1ABD336D00EF73C1 /* digihit_short.mp3 */; };
 		BB7BE3991ABD336D00EF73C1 /* focus1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BB7BE38F1ABD336D00EF73C1 /* focus1.mp3 */; };
 		BB7BE39A1ABD336D00EF73C1 /* tension-goove.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BB7BE3901ABD336D00EF73C1 /* tension-goove.mp3 */; };
-		FD0150D3A7ED3B495C8AF7D5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC06B3E456FE899C834AA79D /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1924037CA57FA68A8E597A26 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		595A03225333E6B8108FD091 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BB0057CD1ABD317F00260E02 /* PopUpHauntedHouse-New.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PopUpHauntedHouse-New.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB0057D11ABD317F00260E02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,11 +59,13 @@
 		BB0057E51ABD317F00260E02 /* PopUpHauntedHouse-NewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PopUpHauntedHouse-NewTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB0057EA1ABD317F00260E02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB0057EB1ABD317F00260E02 /* PopUpHauntedHouse_NewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpHauntedHouse_NewTests.swift; sourceTree = "<group>"; };
+		BB2251831ACB78F800B186F5 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Pods/Alamofire.framework"; sourceTree = "<group>"; };
 		BB679D501ABFBE3D00BD8F19 /* PopUpHauntedHouse.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PopUpHauntedHouse.xcdatamodel; sourceTree = "<group>"; };
 		BB7671E81AC8E403005C8661 /* QRCodeReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeReader.swift; sourceTree = "<group>"; };
 		BB7671E91AC8E403005C8661 /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		BB7671EA1AC8E403005C8661 /* ReaderOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderOverlayView.swift; sourceTree = "<group>"; };
 		BB7671EB1AC8E403005C8661 /* SwitchCameraButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchCameraButton.swift; sourceTree = "<group>"; };
+		BB79F26E1ACB79A40094BCC8 /* EstimoteSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EstimoteSDK.framework; path = "Pods/../build/Debug-iphoneos/Pods/EstimoteSDK.framework"; sourceTree = "<group>"; };
 		BB7BE3781ABD324E00EF73C1 /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
 		BB7BE3791ABD332C00EF73C1 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		BB7BE37E1ABD336400EF73C1 /* Beacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
@@ -79,7 +82,6 @@
 		BB7BE38E1ABD336D00EF73C1 /* digihit_short.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = digihit_short.mp3; sourceTree = "<group>"; };
 		BB7BE38F1ABD336D00EF73C1 /* focus1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = focus1.mp3; sourceTree = "<group>"; };
 		BB7BE3901ABD336D00EF73C1 /* tension-goove.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "tension-goove.mp3"; sourceTree = "<group>"; };
-		CC06B3E456FE899C834AA79D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C4EFE7BAD491D91E123EAC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD0150D3A7ED3B495C8AF7D5 /* libPods.a in Frameworks */,
+				337031706A92A7995C160177 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,7 +107,9 @@
 		44BFE1BB794C62ABFC1A8A21 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CC06B3E456FE899C834AA79D /* libPods.a */,
+				BB79F26E1ACB79A40094BCC8 /* EstimoteSDK.framework */,
+				BB2251831ACB78F800B186F5 /* Alamofire.framework */,
+				1924037CA57FA68A8E597A26 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -234,6 +238,7 @@
 				BB0057CA1ABD317F00260E02 /* Frameworks */,
 				BB0057CB1ABD317F00260E02 /* Resources */,
 				E2504B1133AC2E9FF5DAC51B /* Copy Pods Resources */,
+				26678CD81C168A4D768A8DC3 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -330,6 +335,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		26678CD81C168A4D768A8DC3 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A74962AD000150B097356E79 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -454,10 +474,16 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(PROJECT_DIR)/Pods/Headers/Public/**",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Bridge-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -491,9 +517,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(PROJECT_DIR)/Pods/Headers/Public/**",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Bridge-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -505,6 +537,10 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Pods",
+				);
 				INFOPLIST_FILE = "PopUpHauntedHouse-New/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -518,6 +554,10 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Pods",
+				);
 				INFOPLIST_FILE = "PopUpHauntedHouse-New/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

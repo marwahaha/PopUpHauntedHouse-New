@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "237073E08405F7E171E3649B"
-               BuildableName = "EstimoteSDK.framework"
-               BlueprintName = "Pods-EstimoteSDK"
+               BlueprintIdentifier = "FE1049B495694F75A987CA6D"
+               BuildableName = "Alamofire.framework"
+               BlueprintName = "Pods-Alamofire"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "237073E08405F7E171E3649B"
-            BuildableName = "EstimoteSDK.framework"
-            BlueprintName = "Pods-EstimoteSDK"
+            BlueprintIdentifier = "FE1049B495694F75A987CA6D"
+            BuildableName = "Alamofire.framework"
+            BlueprintName = "Pods-Alamofire"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
