@@ -1,0 +1,61 @@
+{
+    "uuidstring":"B9407F30-F5F8-466E-AFF9-25556B57FE6D",
+"data":[
+         {"id":"B9407F30-F5F8-466E-AFF9-25556B57FE6D-27776-16130",
+         "name":"blueberry",
+        "actions": [
+                    {
+                    "name": "BG1",
+                    "type": "AudioTrack",
+                    "actionstring": "BG1.mp3",
+                    "media":"https://s3.amazonaws.com/popup-hauntedhouse-dev/media/BG1.mp3",
+                    "order": 0
+                    },
+                    {
+                    "name": "BG2",
+                    "type": "AudioTrack",
+                    "actionstring": "BG2.mp3",
+                    "media":"https://s3.amazonaws.com/popup-hauntedhouse-dev/media/BG2.mp3",
+                    "order": 1
+                    }
+                ]
+         },
+         {"id":"B9407F30-F5F8-466E-AFF9-25556B57FE6D-2842-55111",
+         "name":"mint",
+        "actions": [
+                    {
+                    "name": "BG3",
+                    "type": "AudioTrack",
+                    "actionstring": "BG3.mp3",
+                    "media":"https://s3.amazonaws.com/popup-hauntedhouse-dev/media/BG3.mp3",
+                    "order": 0
+                    },
+                    {
+                    "name": "BG4",
+                    "type": "AudioTrack",
+                    "actionstring": "BG4.mp3",
+                    "media":"https://s3.amazonaws.com/popup-hauntedhouse-dev/media/BG4.mp3",
+                    "order": 1
+                    }
+                    ]
+         },
+         {"id":"B9407F30-F5F8-466E-AFF9-25556B57FE6D-5153-14990",
+         "name":"ice",
+        "actions": [
+                    {
+                    "name": "BG5",
+                    "type": "AudioTrack",
+                    "actionstring": "BG5.mp3",
+                    "media":"https://s3.amazonaws.com/popup-hauntedhouse-dev/media/BG5.mp3",
+                    "order": 1
+                    },
+                    {
+                    "name": "focus1",
+                    "type": "AudioTrack",
+                    "actionstring": "focus1.mp3",
+                    "media":"https://s3.amazonaws.com/popup-hauntedhouse-dev/media/focus1.mp3",
+                    "order": 0
+                    }
+                    ]
+        }]
+}

@@ -32,7 +32,7 @@ class DataManager {
     }
     
     class func storeActionsDataFromURL(urlString:String)->Void {
-        
+        // TODO: Move to AlamoFire
         var url = NSURL(string:urlString)!
         var session = NSURLSession.sharedSession()
         let loadDataTask = session.dataTaskWithURL(url, completionHandler: { (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void in
@@ -41,6 +41,7 @@ class DataManager {
                 //completion(data: nil, error: responseError)
                 // TODO: LOG IT AND DEAL WITH IT
             } else if let httpResponse = response as? NSHTTPURLResponse {
+                
                     let json = JSON(data: data)
                     println(json)
                 
@@ -60,6 +61,11 @@ class DataManager {
                             for action in actionsArray {
                                 if (action["type"].stringValue!=="AudioTrack") {
                                     DataManager.saveTypeAudioTrack(beaconId,action:action)
+                                    //var media? = action["media"]
+                                    if let media = action["media"].stringValue {
+                                        MediaManager.downloadMedia(media);
+                                    }
+                                    
                                 }
                             }
                         }
@@ -69,35 +75,6 @@ class DataManager {
         })
         
         loadDataTask.resume()
-        
-        
-        
-/**        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-                let filePath = NSBundle.mainBundle().pathForResource(fileName,ofType:"json")
-                var readError:NSError?
-            
-                if let data = NSData(contentsOfFile:filePath!,options: NSDataReadingOptions.DataReadingUncached,error:&readError) {
-            
-                    let json = JSON(data: data)
-                    println(json)
-                    if let appArray = json["data"].arrayValue {
-                        
-                        for appDict in appArray {
-                            var beaconId:String = appDict["id"].stringValue!
-                            var beaconName:String = appDict["name"].stringValue!
-                            DataManager.saveBeacon(beaconId,name: beaconName);
-                            var actionsArray:Array<JSON> = appDict["actions"].arrayValue!
-                            
-                            for action in actionsArray {
-                                if (action["type"].stringValue!=="AudioTrack") {
-                                    DataManager.saveTypeAudioTrack(beaconId,action:action)
-                                }
-                            }
-                        }
-                        
-                    }
-                }
-            })*/
     }
     
     class func saveTypeAudioTrack(beaconId:String,action:JSON) {

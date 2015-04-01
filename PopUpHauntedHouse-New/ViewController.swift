@@ -37,8 +37,7 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate,QRCodeReaderVie
     override func viewDidLoad() {
         super.viewDidLoad()
         beaconManager.delegate = self
-        beaconManager.requestAlwaysAuthorization()
-        
+        beaconManager.requestAlwaysAuthorization()        
     }
     
     func setUpBeaconRanging() {
