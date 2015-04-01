@@ -50,6 +50,7 @@ class DataManager {
                     }
                 
                 
+                    var audioFileDownloadDict = [String:String]()
                     if let appArray = json["data"].arrayValue {
                         
                         for appDict in appArray {
@@ -61,20 +62,32 @@ class DataManager {
                             for action in actionsArray {
                                 if (action["type"].stringValue!=="AudioTrack") {
                                     DataManager.saveTypeAudioTrack(beaconId,action:action)
-                                    //var media? = action["media"]
                                     if let media = action["media"].stringValue {
-                                        MediaManager.downloadMedia(media);
+                                        audioFileDownloadDict[action["name"].stringValue!]=media
                                     }
-                                    
                                 }
                             }
                         }
-                        
                     }
+                
+                // If there are audio files, now save those for each action.
+                for actionName in audioFileDownloadDict.keys {
+                    println("KEY: \(actionName)")
+                    MediaManager.downloadMedia(actionName,url: audioFileDownloadDict[actionName]!);
+                }
+                
+                
             }
         })
         
         loadDataTask.resume()
+    }
+    
+    class func saveFilePathForAudioTrack(actionName:String,path:String)->String {
+        var audioTrack:NSManagedObject=DataManager.getAudioTrackForName(actionName)
+        audioTrack.setValue(path, forKey: "audioFile")
+        DataManager.saveAudioTrack(audioTrack)
+        return path
     }
     
     class func saveTypeAudioTrack(beaconId:String,action:JSON) {
@@ -102,6 +115,26 @@ class DataManager {
         action.setValue(audioFile, forKey: "audioFile")
         action.setValue(audioExtension, forKey: "audioExtension")
         action.setValue(order, forKey: "order")
+        
+        var error: NSError?
+        if !managedContext.save(&error) {
+            println("Could not save \(error), \(error?.userInfo)")
+        }
+        
+    }
+    
+    class func saveAudioTrack(audioTrack:NSManagedObject) {
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let managedContext = appDelegate.managedObjectContext!
+        let entity =  NSEntityDescription.entityForName("AudioTrack",inManagedObjectContext:managedContext)
+        let action = NSManagedObject(entity: entity!,insertIntoManagedObjectContext:managedContext)
+        
+        /**action.setValue(audioTrack.beaconId, forKey: "beaconId")
+        action.setValue(audioTrack.name, forKey: "name")
+        action.setValue(audioTrack.audioFile, forKey: "audioFile")
+        action.setValue(audioTrack.audioExtension, forKey: "audioExtension")
+        action.setValue(audioTrack.order, forKey: "order")*/
         
         var error: NSError?
         if !managedContext.save(&error) {
@@ -165,6 +198,27 @@ class DataManager {
             println("Could not fetch \(error), \(error!.userInfo)")
         }
         return actions;
+    }
+    
+    class func getAudioTrackForName(name:String)->NSManagedObject {
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let managedContext = appDelegate.managedObjectContext!
+        let fetchRequest = NSFetchRequest(entityName:"AudioTrack")
+        
+        let predicate = NSPredicate(format: "name == %@", name)
+        fetchRequest.predicate = predicate
+        
+        var error: NSError?
+        let fetchedResults = managedContext.executeFetchRequest(fetchRequest,error: &error) as [NSManagedObject]?
+        
+        var actions:[NSManagedObject] = [NSManagedObject]()
+        if let results = fetchedResults {
+            actions = results
+        } else {
+            println("Could not fetch \(error), \(error!.userInfo)")
+        }
+        return actions[0]
     }
     
 }
