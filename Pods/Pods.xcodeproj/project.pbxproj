@@ -118,7 +118,6 @@
 		0151EEF7DBB0167ACA560849 /* Pods-SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftyJSON.xcconfig"; sourceTree = "<group>"; };
 		046DE4B4235903000F27E723 /* EstimoteSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EstimoteSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05362E8C32E69A258F86677B /* Pods-Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Alamofire-prefix.pch"; sourceTree = "<group>"; };
-		05BE2ACC66001181D3E91858 /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
 		067E3873F35DD2A71DCF1C60 /* ESTEddystoneUID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ESTEddystoneUID.h; path = EstimoteSDK/EstimoteSDK.framework/Versions/A/Headers/ESTEddystoneUID.h; sourceTree = "<group>"; };
 		094250C02D763199C1ED6123 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B8ED97FBB3CB7E2923DC358 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -407,7 +406,6 @@
 			children = (
 				9ECF6548C2F5A3B6932D2D9C /* Info.plist */,
 				E059D5242D4C27C12C38E740 /* Pods.modulemap */,
-				05BE2ACC66001181D3E91858 /* Pods-acknowledgements.markdown */,
 				3ACF3553681ED965BD6D1C37 /* Pods-acknowledgements.plist */,
 				D2A18398D4014ECECD01EBA7 /* Pods-dummy.m */,
 				CF52E6A9C56D3656B724FDBC /* Pods-environment.h */,
