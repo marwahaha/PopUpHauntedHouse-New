@@ -17,11 +17,6 @@
 		BB2683381ACB86FA0051E93F /* PopUpHauntedHouse.json in Resources */ = {isa = PBXBuildFile; fileRef = BB2683371ACB86FA0051E93F /* PopUpHauntedHouse.json */; };
 		BB26833A1ACB87FE0051E93F /* MediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2683391ACB87FE0051E93F /* MediaManager.swift */; };
 		BB679D511ABFBE3D00BD8F19 /* PopUpHauntedHouse.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB679D4F1ABFBE3D00BD8F19 /* PopUpHauntedHouse.xcdatamodeld */; };
-		BB7671EC1AC8E403005C8661 /* QRCodeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7671E81AC8E403005C8661 /* QRCodeReader.swift */; };
-		BB7671ED1AC8E403005C8661 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7671E91AC8E403005C8661 /* QRCodeViewController.swift */; };
-		BB7671EE1AC8E403005C8661 /* ReaderOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7671EA1AC8E403005C8661 /* ReaderOverlayView.swift */; };
-		BB7671EF1AC8E403005C8661 /* SwitchCameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7671EB1AC8E403005C8661 /* SwitchCameraButton.swift */; };
-		BB7BE37A1ABD332C00EF73C1 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7BE3791ABD332C00EF73C1 /* SwiftyJSON.swift */; };
 		BB7BE3831ABD336400EF73C1 /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7BE37E1ABD336400EF73C1 /* Beacon.swift */; };
 		BB7BE3841ABD336400EF73C1 /* ActionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7BE37F1ABD336400EF73C1 /* ActionProtocol.swift */; };
 		BB7BE3851ABD336400EF73C1 /* AudioTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7BE3801ABD336400EF73C1 /* AudioTrack.swift */; };
@@ -65,13 +60,8 @@
 		BB2683371ACB86FA0051E93F /* PopUpHauntedHouse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PopUpHauntedHouse.json; sourceTree = SOURCE_ROOT; };
 		BB2683391ACB87FE0051E93F /* MediaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaManager.swift; sourceTree = "<group>"; };
 		BB679D501ABFBE3D00BD8F19 /* PopUpHauntedHouse.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PopUpHauntedHouse.xcdatamodel; sourceTree = "<group>"; };
-		BB7671E81AC8E403005C8661 /* QRCodeReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeReader.swift; sourceTree = "<group>"; };
-		BB7671E91AC8E403005C8661 /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
-		BB7671EA1AC8E403005C8661 /* ReaderOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderOverlayView.swift; sourceTree = "<group>"; };
-		BB7671EB1AC8E403005C8661 /* SwitchCameraButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchCameraButton.swift; sourceTree = "<group>"; };
 		BB79F26E1ACB79A40094BCC8 /* EstimoteSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EstimoteSDK.framework; path = "Pods/../build/Debug-iphoneos/Pods/EstimoteSDK.framework"; sourceTree = "<group>"; };
 		BB7BE3781ABD324E00EF73C1 /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
-		BB7BE3791ABD332C00EF73C1 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		BB7BE37E1ABD336400EF73C1 /* Beacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
 		BB7BE37F1ABD336400EF73C1 /* ActionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionProtocol.swift; sourceTree = "<group>"; };
 		BB7BE3801ABD336400EF73C1 /* AudioTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioTrack.swift; sourceTree = "<group>"; };
@@ -151,10 +141,8 @@
 		BB0057CF1ABD317F00260E02 /* PopUpHauntedHouse-New */ = {
 			isa = PBXGroup;
 			children = (
-				BB7671E71AC8E403005C8661 /* QRCodeReader */,
 				BB7BE39C1ABD339600EF73C1 /* data */,
 				BB7BE39B1ABD338A00EF73C1 /* audio */,
-				BB7BE3791ABD332C00EF73C1 /* SwiftyJSON.swift */,
 				BB7BE37E1ABD336400EF73C1 /* Beacon.swift */,
 				BB7BE37F1ABD336400EF73C1 /* ActionProtocol.swift */,
 				BB7BE3801ABD336400EF73C1 /* AudioTrack.swift */,
@@ -194,17 +182,6 @@
 				BB0057EA1ABD317F00260E02 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		BB7671E71AC8E403005C8661 /* QRCodeReader */ = {
-			isa = PBXGroup;
-			children = (
-				BB7671E81AC8E403005C8661 /* QRCodeReader.swift */,
-				BB7671E91AC8E403005C8661 /* QRCodeViewController.swift */,
-				BB7671EA1AC8E403005C8661 /* ReaderOverlayView.swift */,
-				BB7671EB1AC8E403005C8661 /* SwitchCameraButton.swift */,
-			);
-			path = QRCodeReader;
 			sourceTree = "<group>";
 		};
 		BB7BE39B1ABD338A00EF73C1 /* audio */ = {
@@ -279,7 +256,7 @@
 		BB0057C51ABD317F00260E02 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = Murmur;
 				TargetAttributes = {
 					BB0057CC1ABD317F00260E02 = {
@@ -395,17 +372,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB0057D81ABD317F00260E02 /* ViewController.swift in Sources */,
-				BB7671EC1AC8E403005C8661 /* QRCodeReader.swift in Sources */,
 				BB26833A1ACB87FE0051E93F /* MediaManager.swift in Sources */,
 				BB7BE3861ABD336400EF73C1 /* DataManager.swift in Sources */,
 				BB7BE3841ABD336400EF73C1 /* ActionProtocol.swift in Sources */,
-				BB7671ED1AC8E403005C8661 /* QRCodeViewController.swift in Sources */,
 				BB0057D31ABD317F00260E02 /* AppDelegate.swift in Sources */,
-				BB7671EE1AC8E403005C8661 /* ReaderOverlayView.swift in Sources */,
 				BB7BE3831ABD336400EF73C1 /* Beacon.swift in Sources */,
 				BB7BE3851ABD336400EF73C1 /* AudioTrack.swift in Sources */,
-				BB7BE37A1ABD332C00EF73C1 /* SwiftyJSON.swift in Sources */,
-				BB7671EF1AC8E403005C8661 /* SwitchCameraButton.swift in Sources */,
 				BB679D511ABFBE3D00BD8F19 /* PopUpHauntedHouse.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -543,7 +515,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 595A03225333E6B8108FD091 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -553,6 +524,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Bridge-Header.h";
 			};
 			name = Debug;
 		};
@@ -560,7 +532,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F4C4EFE7BAD491D91E123EAC /* Pods.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -570,6 +541,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Bridge-Header.h";
 			};
 			name = Release;
 		};

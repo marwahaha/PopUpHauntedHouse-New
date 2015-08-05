@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import AlamoFire
 
 class MediaManager {
     
@@ -29,16 +28,6 @@ class MediaManager {
         
             
             return temporaryURL
-        }
-        
-        
-        
-        Alamofire.download(.GET, url, destination)
-            .progress { (bytesRead, totalBytesRead, totalBytesExpectedToRead) in
-                //println(totalBytesRead)
-            }
-            .response { (request, response, _, error) in
-                println(response)
         }
 
     }

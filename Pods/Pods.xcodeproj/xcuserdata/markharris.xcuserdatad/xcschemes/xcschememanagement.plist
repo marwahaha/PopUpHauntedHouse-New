@@ -14,6 +14,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-QRCodeReader.swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>237073E08405F7E171E3649B</key>
+		<key>4AA7F5B8D6BC0D446BB15E27</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>94C02AB664F10655BF5BF905</key>
+		<key>56D47607DC75BC3A011A7132</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FE1049B495694F75A987CA6D</key>
+		<key>A86CD072E5E9E6CDA24408D1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ACAD1D8464A340530231FA1F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ACCB3A8BC012DEE34246BEBE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

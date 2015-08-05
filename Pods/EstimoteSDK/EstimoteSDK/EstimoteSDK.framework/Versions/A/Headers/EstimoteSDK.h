@@ -7,11 +7,12 @@
 //  |______|___/\__|_|_| |_| |_|\___/ \__\___| |_____/|_____/|_|\_\
 //
 //
-//  Version: 3.0.3
+//  Version: 3.3.3
 //  Copyright (c) 2015 Estimote. All rights reserved.
 
 #import <CoreLocation/CoreLocation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
+#import <SystemConfiguration/SystemConfiguration.h>
 
 #import "ESTTriggerManager.h"
 #import "ESTBeaconManager.h"
@@ -31,3 +32,8 @@
 
 #import "ESTNotificationTransporter.h"
 #import "ESTBulkUpdater.h"
+#import "ESTEddystoneManager.h"
+
+#import "ESTEddystoneFilterUID.h"
+#import "ESTEddystoneFilterURL.h"
+#import "ESTEddystoneFilterURLDomain.h"

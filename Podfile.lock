@@ -1,13 +1,19 @@
 PODS:
-  - Alamofire (1.1.4)
-  - EstimoteSDK (3.0.3)
+  - Alamofire (1.3.0)
+  - EstimoteSDK (3.3.3)
+  - QRCodeReader.swift (4.3.0)
+  - SwiftyJSON (2.2.1)
 
 DEPENDENCIES:
-  - Alamofire (~> 1.1)
-  - EstimoteSDK (~> 3.0.3)
+  - Alamofire (~> 1.3)
+  - EstimoteSDK (~> 3.3.3)
+  - QRCodeReader.swift (~> 4.3.0)
+  - SwiftyJSON (~> 2.2.1)
 
 SPEC CHECKSUMS:
-  Alamofire: 6a2cbaebe78a6d469bc55ee37f0a24ba22af76ac
-  EstimoteSDK: 1a847d60faffd5be26be9b7d3f5428f88373f39b
+  Alamofire: 220403a8d5840e0b4c946a6fbaf209dbca124282
+  EstimoteSDK: 081e0653a747a6fc275eb26e6cb3b3fe5a87984f
+  QRCodeReader.swift: 0024e48765f18f4942147c9bc75dc89138016923
+  SwiftyJSON: ae2d0a3d68025d136602a33c4ee215091ced3e33
 
 COCOAPODS: 0.36.1

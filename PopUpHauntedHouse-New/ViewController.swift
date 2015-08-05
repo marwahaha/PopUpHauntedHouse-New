@@ -7,6 +7,7 @@
 import UIKit
 import CoreData
 import AVFoundation
+import QRCodeReader
 
 class ViewController: UIViewController, ESTBeaconManagerDelegate,QRCodeReaderViewControllerDelegate {
     
@@ -37,10 +38,15 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate,QRCodeReaderVie
     override func viewDidLoad() {
         super.viewDidLoad()
         beaconManager.delegate = self
-        beaconManager.requestAlwaysAuthorization()        
+        //beaconManager.requestAlwaysAuthorization()
+        //var status:CLAuthorizationStatus = ESTBeaconManager.authorizationStatus()
+        //println(CLAuthorizationStatus.AuthorizedAlways.rawValue)
+        //println(CLAuthorizationStatus.NotDetermined.rawValue)
+        //println(CLAuthorizationStatus.)
     }
     
     func setUpBeaconRanging() {
+        beaconManager.requestAlwaysAuthorization()
         if let uuidstring = DataManager.getConfigInfo("uuidstring") {
              self.uuIDString=uuidstring
              println("setUpBeaconRanging: "+self.uuIDString!);
@@ -102,7 +108,7 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate,QRCodeReaderVie
     func loadBeaconsIntoMemory() {
         var bs:[NSManagedObject] = DataManager.getAllBeacons()
         for b in bs {
-            var myBeacon:Beacon = Beacon(thisBeaconId: b.valueForKey("beaconId") as String!)
+            var myBeacon:Beacon = Beacon(thisBeaconId: b.valueForKey("beaconId") as! String!)
             self.actions[myBeacon.beaconId]=self.getAudioTracks(myBeacon.beaconId)
         }
     }
@@ -114,10 +120,10 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate,QRCodeReaderVie
             
             var a:AudioTrack=AudioTrack(
                 beaconId:beaconId,
-                name:action.valueForKey("name") as String!,
-                audioFile:action.valueForKey("audioFile") as String!,
-                audioExtension:action.valueForKey("audioExtension") as String!,
-                order:action.valueForKey("order") as Int!)
+                name:action.valueForKey("name") as! String!,
+                audioFile:action.valueForKey("audioFile")as! String!,
+                audioExtension:action.valueForKey("audioExtension") as? String,
+                order:action.valueForKey("order")as! Int!)
             
             actionProtocols.append(a)
         }
@@ -125,14 +131,15 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate,QRCodeReaderVie
     }
     
     /**
+    manager: ESTBeaconManager!, 
     */
-    func beaconManager(manager: ESTBeaconManager!, didRangeBeacons beacons: [AnyObject]!, inRegion region: CLBeaconRegion!) {
-        
+    func beaconManager(manager: AnyObject!,didRangeBeacons beacons: [AnyObject]!, inRegion region: CLBeaconRegion!) {
+        println("ranging: \(beacons.count)")
         for var i=0; i<beacons.count; i++ {
             
             println("prox: \(beacons[i].minor) : \(beacons[i].rssi) : \(beacons[i].proximity.rawValue)")
             
-            var beacon = beacons[i] as CLBeacon
+            var beacon = beacons[i] as! CLBeacon
             var majorString = String(beacon.major.integerValue)
             var minorString = String(beacon.minor.integerValue)
             var slug:String = self.uuIDString!+"-"+majorString+"-"+minorString

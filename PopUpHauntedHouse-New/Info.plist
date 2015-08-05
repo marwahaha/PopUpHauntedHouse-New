@@ -34,5 +34,7 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>This application monitors your location for the game.</string>
 </dict>
 </plist>

@@ -9,6 +9,7 @@ import AVFoundation
 import CoreData
 import UIKit
 
+@objc(AudioTrack)
 class AudioTrack:NSManagedObject,AVAudioPlayerDelegate,ActionProtocol {
     
     @NSManaged var beaconId:String!
@@ -21,7 +22,7 @@ class AudioTrack:NSManagedObject,AVAudioPlayerDelegate,ActionProtocol {
     
     
     init(beaconId:String,name:String,audioFile:String,audioExtension:String?,order:Int) {
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let ctx = appDelegate.managedObjectContext!
         let entity = NSEntityDescription.entityForName("AudioTrack", inManagedObjectContext: ctx)!
         super.init(entity: entity, insertIntoManagedObjectContext: ctx)

@@ -10,6 +10,7 @@
 import Foundation
 import CoreData
 import UIKit
+import SwiftyJSON
 
 class DataManager {
     
@@ -45,30 +46,32 @@ class DataManager {
                     let json = JSON(data: data)
                     println(json)
                 
-                    if let uuidString = json["uuidstring"].stringValue {
+//                    if let uuidString = json["uuidstring"].stringValue {
+                        let uuidString:String = json["uuidstring"].stringValue
                         DataManager.saveConfigInfo("uuidstring",configVal: uuidString)
-                    }
+  //                  }
                 
                 
                     var audioFileDownloadDict = [String:String]()
-                    if let appArray = json["data"].arrayValue {
-                        
+                    //if let appArray = json["data"].arrayValue {
+                        let appArray = json["data"].arrayValue
                         for appDict in appArray {
-                            var beaconId:String = appDict["id"].stringValue!
-                            var beaconName:String = appDict["name"].stringValue!
+                            var beaconId:String = appDict["id"].stringValue
+                            var beaconName:String = appDict["name"].stringValue
                             DataManager.saveBeacon(beaconId,name: beaconName);
-                            var actionsArray:Array<JSON> = appDict["actions"].arrayValue!
+                            var actionsArray:Array<JSON> = appDict["actions"].arrayValue
                             
                             for action in actionsArray {
-                                if (action["type"].stringValue!=="AudioTrack") {
+                                if (action["type"].stringValue=="AudioTrack") {
                                     DataManager.saveTypeAudioTrack(beaconId,action:action)
-                                    if let media = action["media"].stringValue {
-                                        audioFileDownloadDict[action["name"].stringValue!]=media
-                                    }
+//                                    if let media = action["media"].stringValue {
+                                        let media = action["media"].stringValue
+                                        audioFileDownloadDict[action["name"].stringValue]=media
+  //                                  }
                                 }
                             }
                         }
-                    }
+                    //}
                 
                 // If there are audio files, now save those for each action.
                 for actionName in audioFileDownloadDict.keys {
@@ -93,19 +96,19 @@ class DataManager {
     class func saveTypeAudioTrack(beaconId:String,action:JSON) {
         
         var actions:[String:String] = [String:String]()
-        var name:String = action["name"].stringValue!
-        var actionString:String = action["actionstring"].stringValue!
+        var name:String = action["name"].stringValue
+        var actionString:String = action["actionstring"].stringValue
         var actionStringArray = split(actionString) {$0 == "."}
         var audioFile:String = actionStringArray[0]
         var audioExtension:String = actionStringArray[1]
-        var order:NSNumber = action["order"].numberValue!
+        var order:NSNumber = action["order"].numberValue
         
         self.saveAudioTrack(beaconId,name:name,audioFile:audioFile, audioExtension:audioExtension,order:order)
     }
     
     class func saveAudioTrack(beaconId:String,name:String,audioFile:String,audioExtension:String,order:NSNumber) {
         
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext!
         let entity =  NSEntityDescription.entityForName("AudioTrack",inManagedObjectContext:managedContext)
         let action = NSManagedObject(entity: entity!,insertIntoManagedObjectContext:managedContext)
@@ -125,7 +128,7 @@ class DataManager {
     
     class func saveAudioTrack(audioTrack:NSManagedObject) {
         
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext!
         let entity =  NSEntityDescription.entityForName("AudioTrack",inManagedObjectContext:managedContext)
         let action = NSManagedObject(entity: entity!,insertIntoManagedObjectContext:managedContext)
@@ -145,7 +148,7 @@ class DataManager {
     
     class func saveBeacon(beaconId:String,name:String) {
         
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext!
         let entity =  NSEntityDescription.entityForName("Beacon",inManagedObjectContext:managedContext)
         let action = NSManagedObject(entity: entity!,insertIntoManagedObjectContext:managedContext)
@@ -161,12 +164,12 @@ class DataManager {
     }
     
     class func getAllBeacons()->Array<NSManagedObject> {
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext!
         let fetchRequest = NSFetchRequest(entityName:"Beacon")
         
         var error: NSError?
-        let fetchedResults = managedContext.executeFetchRequest(fetchRequest,error: &error) as [NSManagedObject]?
+        let fetchedResults = managedContext.executeFetchRequest(fetchRequest,error: &error) as! [NSManagedObject]?
         
         var beacons:[NSManagedObject] = [NSManagedObject]()
         if let results = fetchedResults {
@@ -179,7 +182,7 @@ class DataManager {
     
     class func getAudioTracksForBeacon(beaconId:String)->Array<NSManagedObject> {
         
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext!
         let fetchRequest = NSFetchRequest(entityName:"AudioTrack")
         
@@ -189,7 +192,7 @@ class DataManager {
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         var error: NSError?
-        let fetchedResults = managedContext.executeFetchRequest(fetchRequest,error: &error) as [NSManagedObject]?
+        let fetchedResults = managedContext.executeFetchRequest(fetchRequest,error: &error) as! [NSManagedObject]?
         
         var actions:[NSManagedObject] = [NSManagedObject]()
         if let results = fetchedResults {
@@ -202,7 +205,7 @@ class DataManager {
     
     class func getAudioTrackForName(name:String)->NSManagedObject {
         
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext!
         let fetchRequest = NSFetchRequest(entityName:"AudioTrack")
         
@@ -210,7 +213,7 @@ class DataManager {
         fetchRequest.predicate = predicate
         
         var error: NSError?
-        let fetchedResults = managedContext.executeFetchRequest(fetchRequest,error: &error) as [NSManagedObject]?
+        let fetchedResults = managedContext.executeFetchRequest(fetchRequest,error: &error) as! [NSManagedObject]?
         
         var actions:[NSManagedObject] = [NSManagedObject]()
         if let results = fetchedResults {

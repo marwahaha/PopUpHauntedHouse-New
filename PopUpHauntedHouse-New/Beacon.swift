@@ -10,6 +10,7 @@ import Foundation
 import CoreData
 import UIKit
 
+@objc(Beacon)
 class Beacon:NSManagedObject {
     
     @NSManaged var beaconId:String!
@@ -17,7 +18,7 @@ class Beacon:NSManagedObject {
     var actions:[ActionProtocol]=[]
     
     init(thisBeaconId:String) {
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let ctx = appDelegate.managedObjectContext!
         let entity = NSEntityDescription.entityForName("Beacon", inManagedObjectContext: ctx)!
         super.init(entity: entity, insertIntoManagedObjectContext: ctx)

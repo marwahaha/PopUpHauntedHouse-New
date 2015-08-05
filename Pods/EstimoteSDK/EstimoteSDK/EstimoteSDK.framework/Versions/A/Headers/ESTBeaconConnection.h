@@ -7,13 +7,28 @@
 //  |______|___/\__|_|_| |_| |_|\___/ \__\___| |_____/|_____/|_|\_\
 //
 //
-//  Version: 3.0.3
 //  Copyright (c) 2015 Estimote. All rights reserved.
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 #import "ESTBeaconDefinitions.h"
+#import "ESTBeaconVO.h"
+
+#define CONNECTION_ERROR_UID_MISSING    400
+#define CONNECTION_ERROR_AUTHORIZATION  401
+#define CONNECTION_ERROR_TIMEOUT        402
+#define CONNECTION_ERROR_NOT_LOGGED_IN  403
+
+#define CHARACTERISTIC_ERROR            410
+#define SAME_VALUE_ERROR                411
+
+
+#define AUTHORIZATION_ERROR_DIFFERENT_USER      601
+#define AUTHORIZATION_ERROR_NO_CLOUD_ACCOUNT    602
+#define AUTHORIZATION_ERROR_NOT_ASSIGNED        603
+#define AUTHORIZATION_ERROR_NOT_REGISTERED      604
+#define AUTHORIZATION_ERROR_SERVER              605
 
 @class ESTBeaconConnection;
 
@@ -34,24 +49,33 @@ enum
 @optional
 
 /**
- * Tells the delegate that an attempt to connect to a nearable succeeded and the connection has been established.
+ * Tells the delegate that Estimote Cloud verified device for authorized user.
  *
- * @param connection The nearable connection object reporting the event.
+ * @param connection The beacon connection object reporting the event.
+ * @param data Information about the device stored in the Estimote Cloud.
+ * @param error An error object containing the error code that indicates why connection failed.
+ */
+- (void)beaconConnection:(ESTBeaconConnection *)connection didVerifyWithData:(ESTBeaconVO *)data error:(NSError *)error;
+
+/**
+ * Tells the delegate that an attempt to connect to a beacon succeeded and the connection has been established.
+ *
+ * @param connection The beacon connection object reporting the event.
  */
 - (void)beaconConnectionDidSucceed:(ESTBeaconConnection *)connection;
 
 /**
- * Tells the delegate that an attempt to connect to a nearable has failed.
+ * Tells the delegate that an attempt to connect to a beacon has failed.
  *
- * @param connection The nearable connection object reporting the event.
+ * @param connection The beacon connection object reporting the event.
  * @param error An error object containing the error code that indicates why connection failed.
  */
 - (void)beaconConnection:(ESTBeaconConnection *)connection didFailWithError:(NSError *)error;
 
 /**
- * Tells the delegate that a previously connected nearable has disconnected.
+ * Tells the delegate that a previously connected beacon has disconnected.
  *
- * @param connection The nearable connection object reporting the event.
+ * @param connection The beacon connection object reporting the event.
  * @param error An error object containing the error code that indicates why the beacon disconnected.
  */
 - (void)beaconConnection:(ESTBeaconConnection *)connection didDisconnectWithError:(NSError *)error;
@@ -64,16 +88,18 @@ enum
  */
 - (void)beaconConnection:(ESTBeaconConnection *)connection motionStateChanged:(ESTBeaconMotionState)state;
 
+- (void)beaconConnection:(ESTBeaconConnection *)connection didUpdateRSSI:(NSNumber *)rssi;
+
 @end
 
 /**
  * The `ESTBeaconConnection` class defines the interface for interacting with a single Estimote beacon. It enables you to connect to the device, retrieve properties and change its configuration settings.
  *
- * The ESTBeaconConnection instance can be intialized using CLBeacon object or mac address being unique identifier of particular device. Fetch required beacon details you can use:
+ * The ESTBeaconConnection instance can be initialized using CLBeacon object or mac address being unique identifier of particular device. Fetch required beacon details you can use:
  *
- * - `startRangingBeaconsInRegion:` - which is a CoreLocation based scan and deliveres `CLBeacon` objects.
+ * - `startRangingBeaconsInRegion:` - which is a CoreLocation based scan and delivers `CLBeacon` objects.
  *
- * - `startEstimoteBeaconsDiscovery` - which is a CoreBluetooth based scan and deliveres `ESTBluetoothBeacon` object containing mac address.
+ * - `startEstimoteBeaconsDiscovery` - which is a CoreBluetooth based scan and delivers `ESTBluetoothBeacon` object containing mac address.
  *
  * Properties become editable once connected to the beacon. See connect for more details about connecting to the beacon. You will also need to assign a delegate to be notified about connection and disconnection events. The delegate needs to conform to the `<ESTBeaconConnectionDelegate>` protocol.
  */
@@ -89,7 +115,7 @@ enum
  * Identifier of the device that you aim to connect. 
  * Based on the method you used to initialize it may contain:
  * - Device Mac address
- * - Device iBeacon properties formated as follows: ProximityUUUID:Major:Minor
+ * - Device iBeacon properties formatted as follows: ProximityUUUID:Major:Minor
  *
  */
 @property (nonatomic, strong, readonly) NSString *identifier;
@@ -108,12 +134,12 @@ enum
  *  @param minor discovered beacons Minor
  *  @param delegate delegate reference
  *
- *  @return nearable connection object
+ *  @return beacon connection object
  */
 + (instancetype)connectionWithProximityUUID:(NSUUID *)proximityUUID
                                       major:(CLBeaconMajorValue)major
                                       minor:(CLBeaconMinorValue)minor
-                              delegate:(id<ESTBeaconConnectionDelegate>)delegate;
+                                   delegate:(id<ESTBeaconConnectionDelegate>)delegate;
 
 /**
  *  Static method initializing connection object with Estimote beacon
@@ -121,7 +147,7 @@ enum
  *  @param beacon discovered beacon
  *  @param delegate delegate reference
  *
- *  @return nearable connection object
+ *  @return beacon connection object
  */
 + (instancetype)connectionWithBeacon:(CLBeacon *)beacon
                             delegate:(id<ESTBeaconConnectionDelegate>)delegate;
@@ -209,6 +235,11 @@ enum
  */
 - (void)cancelConnection;
 
+/**
+ *  Performs disconnect procedure for connected device.
+ */
+- (void)disconnect;
+
 
 #pragma mark - Device identification
 ///--------------------------------------------------------------------
@@ -230,7 +261,7 @@ enum
 /**
  * The color of the beacon.
  *
- * This value is stored and retrieved from the Estimote Cloud, which means it might be unavailable under certain circumestances - e.g. no Internet connectivity.
+ * This value is stored and retrieved from the Estimote Cloud, which means it might be unavailable under certain circumstances - e.g. no Internet connectivity.
  *
  */
 @property (readonly, nonatomic) ESTColor color;
@@ -239,6 +270,11 @@ enum
  *  The underlying Bluetooth peripheral device.
  */
 @property (readonly, nonatomic) CBPeripheral *peripheral;
+
+/**
+ *  Broadcasting scheme of device.
+ */
+@property (readonly, nonatomic) ESTBroadcastingScheme broadcastingScheme;
 
 #pragma mark - iBeacon settings
 ///--------------------------------------------------------------------
@@ -298,6 +334,23 @@ enum
  */
 @property (readonly, nonatomic) NSNumber *advInterval;
 
+#pragma mark - Google Eddystone
+
+/**
+ * Namespace ID of Google Eddystone - part of device identification.
+ */
+@property (readonly, nonatomic) NSString *eddystoneNamespace;
+
+/**
+ * Instance ID of Google Eddystone - part of device identification.
+ */
+@property (readonly, nonatomic) NSString *eddystoneInstance;
+
+/**
+ * URL advertised by Google Eddystone device in URL mode.
+ */
+@property (readonly, nonatomic) NSString *eddystoneURL;
+
 #pragma mark - Hardware and software information
 
 /**
@@ -312,6 +365,11 @@ enum
  * @see updateFirmwareWithProgress:completion:
  */
 @property (readonly, nonatomic) NSString *firmwareVersion;
+
+/**
+ * The received signal strength of the beacon, measured in decibels.
+ */
+@property (readonly, nonatomic) NSNumber *rssi;
 
 #pragma mark - Power management
 ///--------------------------------------------------------------------
@@ -390,7 +448,7 @@ enum
 @property (readonly, nonatomic) ESTBeaconMotionState motionState;
 
 /**
- *  State of temeperature sensor.
+ *  State of temperature sensor.
  */
 @property (readonly, nonatomic) ESTBeaconTemperatureState temperatureState;
 
@@ -458,6 +516,45 @@ enum
  */
 - (void)resetAccelerometerCountWithCompletion:(ESTUnsignedShortCompletionBlock)completion;
 
+#pragma mark - Writing methods for broadcasting settings
+///--------------------------------------------------------------------
+/// @name Writing methods for broadcasting settings
+///--------------------------------------------------------------------
+
+/**
+ *  Changes broadcasting scheme for device. Broadcasting scheme describes set settings
+ *  defining what kind of data and how often is broadcasting.
+ *
+ *  Possible options are:
+ *  - ESTBroadcastingSchemeEstimote - broadcasts iBeacon packets with customizable Advertising interval. 
+ *    Default advertising interval (950ms) value is set after method invocation.
+ *  - ESTBroadcastingSchemeIBeacon - broadcasts iBeacon packets with iBeacon Advertising interval.
+ *  - ESTBroadcastingSchemeEddystoneURL - broadcasts Eddystone-URL packets with customizable interval.
+ *    Default advertising interval (500ms) value is set after method invocation.
+ *  - ESTBroadcastingSchemeEddystoneUID - broadcasts Eddystone-UID packets with customizable interval.
+ *    Default advertising interval (500ms) value is set after method invocation.
+ */
+- (void)writeBroadcastingScheme:(ESTBroadcastingScheme)broadcastingScheme completion:(ESTUnsignedShortCompletionBlock)completion;
+
+/**
+ *  Changes the conditional broadcasting type. Note that the accelerometer must be enabled for this feature to work
+ *  i.e. you must set Motion Detection Flag in order to use this feature.
+ *  Possible options are:
+ *  - ESTBeaconConditionalBroadcastingOff - the default mode, beacon is broadcasting all the time
+ *  - ESTBeaconConditionalBroadcastingMotionOnly – beacon only advertises when it's in motion.
+ *    Note that UUID used in advertising packet depends on Motion UUID Flag state.
+ *  - ESTBeaconConditionalBroadcastingFlipToStop – beacon does not advertise when it's stationary and facing gecko pad up.
+ *    If the beacon is moving or oriented differently it acts normally.
+ *
+ *  @since Estimote OS A3.0.0
+ *
+ *  @param conditionalBroadcasting Conditional broadcasting mode to be set in the beacon.
+ *  @param completion A block that is called when the belly mode has been enabled or disabled.
+ *
+ */
+- (void)writeConditionalBroadcastingType:(ESTBeaconConditionalBroadcasting)conditionalBroadcasting
+                              completion:(ESTBoolCompletionBlock)completion;
+
 #pragma mark - Writing methods for iBeacon settings
 ///--------------------------------------------------------------------
 /// @name Writing methods for iBeacon settings
@@ -524,7 +621,7 @@ enum
 /**
  * Sets the advertising interval, i.e. `<advInterval>`.
  *
- * @param interval The new `advInterval` in miliseconds. The value must be in range from 100 to 2000.
+ * @param interval The new `advInterval` in milliseconds. The value must be in range from 100 to 2000.
  * @param completion A block that is called when the new `advInterval` has been set.
  *
  * The completion block receives the following parameters:
@@ -547,6 +644,48 @@ enum
  * - `NSError *error` - If an error occurred, this error object describes the error. If the operation completed successfully, the value is `nil`.
  */
 - (void)writePower:(ESTBeaconPower)power completion:(ESTPowerCompletionBlock)completion;
+
+#pragma mark - Writing methods for Google beacons
+///--------------------------------------------------------------------
+/// @name Writing methods for Google beacons
+///--------------------------------------------------------------------
+
+/**
+ *  Sets Google beacon Namespace ID. Value should be provided as a domain formatted string (FQDN)
+ *  according to Google beacon best practices. Method automatically produce SHA-1 hash.
+ *  First 10 bytes of produced hash are used as Namespace ID.
+ *
+ *  @param eddystoneNamespace Google beacon Namespace ID
+ *  @param completion A block that is called when the Namespace has been changed or error occurred.
+ */
+- (void)writeEddystoneDomainNamespace:(NSString *)eddystoneNamespace completion:(ESTStringCompletionBlock)completion;
+
+/**
+ *  Sets Google beacon Instance ID. Value should be provided as a Hexadecimal string
+ *  representing 6 bytes (12 character string - 2 chars for 1 byte).
+ *
+ *  @param gInstance Google beacon Instance ID
+ *  @param completion A block that is called when the Instance ID has been changed or error occurred.
+ */
+- (void)writeEddystoneHexNamespace:(NSString *)eddystoneNamespace completion:(ESTStringCompletionBlock)completion;
+
+/**
+ *  Sets Google beacon Instance ID. Value should be provided as a Hexadecimal string
+ *  representing 6 bytes (12 character string - 2 chars for 1 byte).
+ *
+ *  @param gInstance Google beacon Instance ID
+ *  @param completion A block that is called when the Instance ID has been changed or error occurred.
+ */
+- (void)writeEddystoneInstance:(NSString *)eddystoneInstance completion:(ESTStringCompletionBlock)completion;
+
+/**
+ *  Sets Eddystone URL. Defined URL is provided in advertising packet
+ *  when ESTBeaconPacketTypeEddystoneURL is selected as a packet type.
+ *
+ *  @param eddystoneURL Eddystone URL
+ *  @param completion A block that is called when the URL has been changed or error occurred.
+ */
+- (void)writeEddystoneURL:(NSString *)eddystoneURL completion:(ESTStringCompletionBlock)completion;
 
 #pragma mark - Writing methods for power management
 ///--------------------------------------------------------------------
@@ -582,25 +721,6 @@ enum
  */
 - (void)writeSmartPowerModeEnabled:(BOOL)enable
                         completion:(ESTBoolCompletionBlock)completion;
-
-/**
- *  Changes the conditional broadcasting type. Note that the accelerometer must be enabled for this feature to work
- *  i.e. you must set Motion Detection Flag in order to use this feature.
- *  Possible options are:
- *  - ESTBeaconConditionalBroadcastingOff - the default mode, beacon is broadcasting all the time
- *  - ESTBeaconConditionalBroadcastingMotionOnly – beacon only advertises when it's in motion.
- *    Note that UUID used in advertising packet depends on Motion UUID Flag state.
- *  - ESTBeaconConditionalBroadcastingFlipToStop – beacon does not advertise when it's stationary and facing gecko pad up.
- *    If the beacon is moving or oriented differently it acts normally.
- *
- *  @since Estimote OS A3.0.0
- *
- *  @param conditionalBroadcasting Conditional broadcasting mode to be set in the beacon.
- *  @param completion A block that is called when the belly mode has been enabled or disabled.
- *
- */
-- (void)writeConditionalBroadcastingType:(ESTBeaconConditionalBroadcasting)conditionalBroadcasting
-                              completion:(ESTBoolCompletionBlock)completion;
 
 #pragma mark - Writing methods for security features
 ///--------------------------------------------------------------------
@@ -694,11 +814,19 @@ enum
  */
 - (void)resetToFactorySettingsWithCompletion:(ESTCompletionBlock)completion;
 
+#pragma mark - MAC & Peripheral
+
+/**
+ *  Allows to get MAC address.
+ *
+ *  @param completion completion block returning reference to ESTBeaconConnection object performing operation.
+ */
+- (void)getMacAddressWithCompletion:(ESTStringCompletionBlock)completion;
 
 /**
  *  Allows to find CBPeripheral device using CBCentralManager scan.
  *
- *  @param timeout    timoute of scan operation
+ *  @param timeout    timeout of scan operation
  *  @param completion completion block returning reference to ESTBeaconConnection object performing operation.
  */
 - (void)findPeripheralForBeaconWithTimeout:(NSUInteger)timeout completion:(ESTObjectCompletionBlock)completion;
@@ -729,7 +857,7 @@ enum
  *
  * - `NSError *error` - If an error occurred, this error object describes the error. If the operation completed successfully, the value is `nil`.
  */
-- (void)checkFirmwareUpdateWithCompletion:(ESTFirmwareInfoCompletionBlock)completion;
+- (void)checkFirmwareUpdateWithCompletion:(ESTObjectCompletionBlock)completion;
 
 /**
  * Updates the beacon's firmware.
