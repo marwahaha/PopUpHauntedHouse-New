@@ -69,7 +69,9 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate,QRCodeReaderVie
         }
     }
     @IBAction func loadDataFromURL(sender: AnyObject) {
-        DataManager.loadDataFromURL(DataManager.getConfigInfo("configURL")!)
+        var dataUrl:String = "http://popup-hauntedhouse-dev.s3-website-us-east-1.amazonaws.com/PopUpHauntedHouse.json"
+//        DataManager.loadDataFromURL(DataManager.getConfigInfo("configURL")!)
+        DataManager.loadDataFromURL(dataUrl)
     }
     
     @IBAction func launchQRCodeReader(sender: AnyObject) {
