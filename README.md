@@ -4,7 +4,7 @@ The Pop-up Haunted House project is an attempt to use Bluetooth low energy beaco
 
 What's more is that we plan on expanding the actions you can program. Say you want to call a server, which in turn projects something on the wall. Or you want to call a server, which in turn causes your phone to ring. Or a smart-lightbulb to flicker.
 
-But it's not just abotu scaring the pants off you. The JSON format should allow for any kind of story you want to tell.
+But it's not just about scaring the pants off you. The JSON format should allow for any kind of story you want to tell.
 
 # Story Progression
 One of the cool ideas we're baking into this framework is the idea that approaching a beacon once triggers one action. Then approaching the beacon a second time triggers another action. So there is a story progression there. In the future, we'll keep adding more complex rules, so that your approach to a beacon is based on where you are in a story, which other beacons you've approached, etc.
